@@ -1,12 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   entry: './src/js/app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
     filename: 'bundle.[contenthash].js',
     clean: true,
   },
@@ -24,15 +23,10 @@ module.exports = {
       filename: 'index.html',
       inject: 'body',
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: 'src/css/main.css', to: 'main.css' },
-      ],
-    }),
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, 'dist'),
+      directory: path.join(__dirname, 'docs'),
     },
     compress: true,
     port: 8080,

@@ -1,3 +1,6 @@
+// Import CSS
+require('../css/main.css');
+
 // Inicjalizacja mapy (domyślny widok zanim załadują się dane)
 // Ustawiamy lekki zoom oddalony
 const map = L.map("map", {
