@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lokalizacja IP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <div class="container fade-in-container">
+        <h1>Twoja Lokalizacja po IP</h1>
+
+        <div class="card hover-blue slide-in" style="animation-delay: 0.2s;">
+            <div class="icon-container">
+                <i class="fa-solid fa-globe icon-blue"></i> Adres IP
+            </div>
+            <div class="data-value" id="ip-address">Ładowanie...</div>
+        </div>
+
+        <div class="card hover-red slide-in" style="animation-delay: 0.4s;">
+            <div class="icon-container">
+                <i class="fa-solid fa-location-dot icon-red"></i> Miejsce
+            </div>
+            <div class="data-value" id="location-text">Ładowanie...</div>
+        </div>
+
+        <div class="card hover-green slide-in" style="animation-delay: 0.6s;">
+            <div class="icon-container">
+                <i class="fa-solid fa-location-arrow icon-green"></i> Koordynaty
+            </div>
+            <div class="coords-container">
+                <span>Szerokość: <b id="lat">---</b></span>
+                <span>Długość: <b id="lng">---</b></span>
+            </div>
+        </div>
+
+        <div class="map-wrapper slide-in" style="animation-delay: 0.8s;">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="../js/app.js"></script>
+</body>
+
+</html>
