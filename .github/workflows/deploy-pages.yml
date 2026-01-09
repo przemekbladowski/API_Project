@@ -1,9 +1,9 @@
-name: Deploy Dist to GitHub Pages
+name: Deploy dist to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main  # workflow uruchomi się po pushu do main
 
 permissions:
   contents: read
@@ -13,12 +13,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # 1️⃣ Pobranie repo
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2️⃣ Publikacja gotowego dist na branch gh-pages
       - name: Deploy dist to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
-          branch: gh-pages # branch na który wrzucamy stronę
-          folder: dist # folder do publikacji
-          clean: true
+          branch: gh-pages       # branch docelowy Pages
+          folder: dist           # folder do publikacji
+          clean: true            # usuwa stare pliki na gh-pages
