@@ -24,7 +24,7 @@ Aplikacja prezentuje czysty, nowoczesny interfejs z niebieskim gradientem i bia�
 
 ## � Live Demo
 
-**[Zobacz aplikację na żywo →](https://przemekbladowski.github.io/API_Project/)**
+**[Zobacz aplikację na żywo →](https://api-project-brown.vercel.app/*)**
 
 Aplikacja jest automatycznie wdrażana na GitHub Pages przy każdym push do gałęzi `main`.
 
