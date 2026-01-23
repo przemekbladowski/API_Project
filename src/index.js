@@ -63,19 +63,20 @@ async function fetchIP() {
 // Fetch geolocation data
 async function fetchGeolocation(ip) {
   try {
-    const response = await fetch(`https://ip-api.com/json/${ip}?fields=status,message,country,city,lat,lon`);
+    // Using ipapi.co instead of ip-api.com because it supports HTTPS on free tier
+    const response = await fetch(`https://ipapi.co/${ip}/json/`);
     if (!response.ok) throw new Error('Nie udało się pobrać lokalizacji');
     const data = await response.json();
     
-    if (data.status === 'fail') {
-      throw new Error(data.message || 'Błąd geolokalizacji');
+    if (data.error) {
+      throw new Error(data.reason || 'Błąd geolokalizacji');
     }
     
     return {
       city: data.city,
-      country: data.country,
-      lat: data.lat,
-      lon: data.lon,
+      country: data.country_name,
+      lat: data.latitude,
+      lon: data.longitude,
     };
   } catch (error) {
     console.error('Geolocation fetch error:', error);
