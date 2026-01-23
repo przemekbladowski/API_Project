@@ -45,7 +45,7 @@ Aplikacja jest automatycznie wdrażana na GitHub Pages przy każdym push do gał
 
 ### APIs
 - **[ipify](https://www.ipify.org/)** - Wykrywanie adresu IP
-- **[ip-api.com](http://ip-api.com/)** - Dane geolokalizacyjne
+- **[ipapi.co](https://ipapi.co/)** - Dane geolokalizacyjne (wspiera HTTPS)
 - **[OpenStreetMap](https://www.openstreetmap.org/)** - Kafelki mapy
 
 ## 📁 Struktura projektu
@@ -167,9 +167,9 @@ const data = await response.json();
 
 ### 2. Geolokalizacja
 ```javascript
-const response = await fetch(`http://ip-api.com/json/${ip}?fields=status,message,country,city,lat,lon`);
+const response = await fetch(`https://ipapi.co/${ip}/json/`);
 const data = await response.json();
-// data zawiera: city, country, lat, lon
+// data zawiera: city, country_name, latitude, longitude
 ```
 
 ### 3. Mapa Leaflet
@@ -185,11 +185,12 @@ L.marker([lat, lng]).addTo(map);
 - **Limit**: Brak (darmowe dla niekomercyjnego użytku)
 - **Dokumentacja**: https://www.ipify.org/
 
-### ip-api.com
-- **Limit**: 45 zapytań/minutę (darmowa wersja)
-- **Dokumentacja**: https://ip-api.com/docs/
+### ipapi.co
+- **Limit**: 1,000 zapytań/dzień (darmowa wersja), 30,000/miesiąc
+- **HTTPS**: ✅ Wspierane na darmowym planie
+- **Dokumentacja**: https://ipapi.co/api/
 
-> ⚠️ **Uwaga**: Dla aplikacji produkcyjnych rozważ użycie płatnych API z wyższymi limitami i kluczami autoryzacyjnymi.
+> ✅ **Uwaga**: ipapi.co wspiera HTTPS na darmowym planie, co jest wymagane dla GitHub Pages.
 
 ## 🐛 Rozwiązywanie problemów
 
@@ -279,7 +280,7 @@ Projekt stworzony na podstawie projektu Figma.
 - [Leaflet.js](https://leafletjs.com/) - Biblioteka map
 - [OpenStreetMap](https://www.openstreetmap.org/) - Dane map
 - [ipify](https://www.ipify.org/) - API wykrywania IP
-- [ip-api.com](http://ip-api.com/) - API geolokalizacji
+- [ipapi.co](https://ipapi.co/) - API geolokalizacji z HTTPS
 - [Google Fonts](https://fonts.google.com/) - Font Poppins
 
 ## 📞 Wsparcie
