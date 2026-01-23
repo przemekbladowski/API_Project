@@ -22,7 +22,13 @@ Aplikacja prezentuje czysty, nowoczesny interfejs z niebieskim gradientem i bia�
 - 🔄 **Hot Reload** - Natychmiastowe odświeżanie podczas developmentu
 - ❌ **Obsługa błędów** - Przyjazne komunikaty w przypadku problemów z API
 
-## 🛠️ Technologie
+## � Live Demo
+
+**[Zobacz aplikację na żywo →](https://przemekbladowski.github.io/API_Project/)**
+
+Aplikacja jest automatycznie wdrażana na GitHub Pages przy każdym push do gałęzi `main`.
+
+## �🛠️ Technologie
 
 ### Frontend
 - **HTML5** - Semantyczna struktura
@@ -91,6 +97,7 @@ Aplikacja automatycznie otworzy się w przeglądarce pod adresem `http://localho
 | `npm run dev` | Uruchamia serwer deweloperski z hot reload |
 | `npm run build` | Tworzy zoptymalizowaną wersję produkcyjną w folderze `dist/` |
 | `npm run watch` | Obserwuje zmiany i automatycznie przebudowuje projekt |
+| `npm run deploy` | Buduje projekt (używane przez GitHub Actions) |
 
 ## 🎨 Design
 
@@ -203,9 +210,38 @@ Sprawdź, czy Leaflet CSS jest poprawnie załadowany:
 import 'leaflet/dist/leaflet.css';
 ```
 
-## 📦 Build produkcyjny
+## 🌐 Deployment na GitHub Pages
 
-Aby stworzyć wersję produkcyjną:
+Projekt jest skonfigurowany do automatycznego wdrażania na GitHub Pages przy użyciu GitHub Actions.
+
+### Automatyczne wdrożenie
+
+1. **Push do GitHub**
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin main
+```
+
+2. **GitHub Actions automatycznie**:
+   - Zainstaluje zależności
+   - Zbuduje projekt (`npm run build`)
+   - Wdroży na GitHub Pages
+
+3. **Sprawdź status**:
+   - Przejdź do zakładki **Actions** w repozytorium GitHub
+   - Poczekaj na zakończenie workflow (zazwyczaj 1-2 minuty)
+   - Aplikacja będzie dostępna pod: `https://przemekbladowski.github.io/API_Project/`
+
+### Pierwsza konfiguracja GitHub Pages
+
+Jeśli to pierwsze wdrożenie, musisz włączyć GitHub Pages w ustawieniach repozytorium:
+
+1. Przejdź do **Settings** → **Pages**
+2. W sekcji **Source** wybierz **GitHub Actions**
+3. Zapisz ustawienia
+
+### Lokalne testowanie buildu produkcyjnego
 
 ```bash
 npm run build
@@ -215,8 +251,6 @@ Zoptymalizowane pliki znajdą się w folderze `dist/`:
 - `index.html` - Główny plik HTML
 - `bundle.js` - Zminifikowany JavaScript
 - `*.png` - Obrazy (ikony Leaflet)
-
-Możesz następnie wdrożyć zawartość folderu `dist/` na dowolny hosting statyczny (Netlify, Vercel, GitHub Pages, itp.).
 
 ## 🌟 Funkcje zaawansowane (opcjonalnie)
 

@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "IP Geolocation Tracker with map display",
   "main": "src/index.js",
+  "homepage": "https://przemekbladowski.github.io/API_Project/",
   "scripts": {
     "dev": "webpack serve --mode development --open",
-    "build": "webpack --mode production",
-    "watch": "webpack --watch --mode development"
+    "build": "NODE_ENV=production webpack --mode production",
+    "watch": "webpack --watch --mode development",
+    "deploy": "npm run build"
   },
   "keywords": [
     "ip",
