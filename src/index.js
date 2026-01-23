@@ -63,7 +63,7 @@ async function fetchIP() {
 // Fetch geolocation data
 async function fetchGeolocation(ip) {
   try {
-    const response = await fetch(`http://ip-api.com/json/${ip}?fields=status,message,country,city,lat,lon`);
+    const response = await fetch(`https://ip-api.com/json/${ip}?fields=status,message,country,city,lat,lon`);
     if (!response.ok) throw new Error('Nie udało się pobrać lokalizacji');
     const data = await response.json();
     
