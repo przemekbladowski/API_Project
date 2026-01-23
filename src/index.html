@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sprawdź swoją lokalizację na podstawie adresu IP">
+  <title>Twoja Lokalizacja po IP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <div class="card">
+      <h1 class="card__title">Twoja Lokalizacja po IP</h1>
+      
+      <section class="info-box">
+        <div class="info-box__header">
+          <svg class="info-box__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>Adres IP</span>
+        </div>
+        <p class="info-box__value" id="ip-address">Ładowanie...</p>
+      </section>
+      
+      <section class="info-box">
+        <div class="info-box__header">
+          <svg class="info-box__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 21c-4-4-8-7.5-8-12a8 8 0 1 1 16 0c0 4.5-4 8-8 12z" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <span>Miejsce</span>
+        </div>
+        <p class="info-box__value" id="location">Ładowanie...</p>
+      </section>
+      
+      <section class="info-box">
+        <div class="info-box__header">
+          <svg class="info-box__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 11l19-9-9 19-2-8-8-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          <span>Koordynaty</span>
+        </div>
+        <div class="info-box__coordinates">
+          <span>Szerokość: <strong id="latitude">--</strong></span>
+          <span>Długość: <strong id="longitude">--</strong></span>
+        </div>
+      </section>
+      
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,439 @@
+// Variables
+$primary-blue: #2B5FE8;
+$primary-blue-light: #4169E6;
+$card-background: #FFFFFF;
+$info-box-bg: #EFF1FE;
+$text-dark: #1A1A2E;
+$text-blue: #2B5FE8;
+$text-gray: #6B7280;
+$border-radius-card: 24px;
+$border-radius-box: 16px;
+$shadow-card: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$shadow-box: 0 1px 3px rgba(0, 0, 0, 0.1);
+$font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+// Reset & Base
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-family;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary-blue 0%, $primary-blue-light 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+// Card
+.card {
+  background: $card-background;
+  border-radius: $border-radius-card;
+  padding: 32px 24px;
+  box-shadow: $shadow-card;
+  
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-blue;
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+}
+
+// Info Box
+.info-box {
+  background: $info-box-bg;
+  border-radius: $border-radius-box;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  box-shadow: $shadow-box;
+  
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: $text-gray;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  &__icon {
+    width: 18px;
+    height: 18px;
+    color: $text-blue;
+  }
+  
+  &__value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: $text-dark;
+    text-align: center;
+  }
+  
+  &__coordinates {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    font-size: 0.9375rem;
+    color: $text-gray;
+    
+    span {
+      display: flex;
+      gap: 4px;
+    }
+    
+    strong {
+      font-weight: 600;
+      color: $text-dark;
+    }
+  }
+}
+
+// Map Container
+.map-container {
+  margin-top: 16px;
+  border-radius: $border-radius-box;
+  overflow: hidden;
+  box-shadow: $shadow-box;
+  
+  #map {
+    width: 100%;
+    height: 220px;
+    background: #e5e5e5;
+  }
+}
+
+// Leaflet Overrides
+.leaflet-container {
+  font-family: $font-family;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+  margin: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: $text-dark;
+}
+
+// Loading Animation
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+// Error State
+.error {
+  color: #EF4444;
+  font-size: 0.875rem;
+}
+
+// Responsive Design
+// Extra Small Devices (phones, portrait, 320px - 480px)
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    padding: 12px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 20px 16px;
+    border-radius: 20px;
+    
+    &__title {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+  }
+  
+  .info-box {
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 14px;
+    
+    &__header {
+      font-size: 0.8125rem;
+      margin-bottom: 6px;
+    }
+    
+    &__icon {
+      width: 16px;
+      height: 16px;
+    }
+    
+    &__value {
+      font-size: 1.0625rem;
+      word-break: break-all;
+    }
+    
+    &__coordinates {
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .map-container {
+    margin-top: 12px;
+    border-radius: 14px;
+    
+    #map {
+      height: 160px;
+    }
+  }
+}
+
+// Small Devices (phones, landscape, 481px - 767px)
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    padding: 16px;
+  }
+
+  .container {
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 28px 20px;
+    
+    &__title {
+      font-size: 1.375rem;
+      margin-bottom: 22px;
+    }
+  }
+  
+  .info-box {
+    padding: 14px 18px;
+    
+    &__value {
+      font-size: 1.1875rem;
+    }
+    
+    &__coordinates {
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .map-container #map {
+    height: 200px;
+  }
+}
+
+// Medium Devices (tablets, 768px - 991px)
+@media (min-width: 768px) and (max-width: 991px) {
+  .container {
+    max-width: 540px;
+  }
+
+  .card {
+    padding: 36px 28px;
+    
+    &__title {
+      font-size: 1.625rem;
+      margin-bottom: 28px;
+    }
+  }
+  
+  .info-box {
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    
+    &__header {
+      font-size: 0.9375rem;
+    }
+    
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+    
+    &__value {
+      font-size: 1.375rem;
+    }
+    
+    &__coordinates {
+      gap: 28px;
+      font-size: 1rem;
+    }
+  }
+  
+  .map-container {
+    margin-top: 18px;
+    
+    #map {
+      height: 260px;
+    }
+  }
+}
+
+// Large Devices (desktops, 992px - 1199px)
+@media (min-width: 992px) and (max-width: 1199px) {
+  .container {
+    max-width: 480px;
+  }
+
+  .card {
+    padding: 40px 32px;
+    
+    &__title {
+      font-size: 1.75rem;
+      margin-bottom: 32px;
+    }
+  }
+  
+  .info-box {
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    
+    &__value {
+      font-size: 1.5rem;
+    }
+    
+    &__coordinates {
+      gap: 32px;
+      font-size: 1.0625rem;
+    }
+  }
+  
+  .map-container {
+    margin-top: 20px;
+    
+    #map {
+      height: 280px;
+    }
+  }
+}
+
+// Extra Large Devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .container {
+    max-width: 500px;
+  }
+
+  .card {
+    padding: 44px 36px;
+    
+    &__title {
+      font-size: 1.875rem;
+      margin-bottom: 36px;
+    }
+  }
+  
+  .info-box {
+    padding: 22px 26px;
+    margin-bottom: 18px;
+    
+    &__header {
+      font-size: 1rem;
+    }
+    
+    &__icon {
+      width: 22px;
+      height: 22px;
+    }
+    
+    &__value {
+      font-size: 1.625rem;
+    }
+    
+    &__coordinates {
+      gap: 36px;
+      font-size: 1.125rem;
+    }
+  }
+  
+  .map-container {
+    margin-top: 24px;
+    
+    #map {
+      height: 300px;
+    }
+  }
+}
+
+// Landscape orientation adjustments
+@media (max-height: 600px) and (orientation: landscape) {
+  body {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 16px;
+    
+    &__title {
+      font-size: 1.125rem;
+      margin-bottom: 12px;
+    }
+  }
+  
+  .info-box {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    
+    &__header {
+      font-size: 0.75rem;
+      margin-bottom: 4px;
+    }
+    
+    &__value {
+      font-size: 1rem;
+    }
+    
+    &__coordinates {
+      font-size: 0.8125rem;
+      gap: 12px;
+    }
+  }
+  
+  .map-container #map {
+    height: 140px;
+  }
+}
+
+// High DPI displays
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .card {
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .info-box {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  }
+}
